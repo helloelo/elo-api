@@ -10,6 +10,10 @@ import (
 	"golang.org/x/oauth2"
 )
 
+func Login2(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "Login success")
+}
+
 // Login is a handler to create account or login via Oauth
 func Login(w http.ResponseWriter, r *http.Request) {
 	conf := &oauth2.Config{
@@ -40,5 +44,15 @@ func Login(w http.ResponseWriter, r *http.Request) {
 	// return email+token
 	fmt.Println("DEBUG: ", profile.Body.Read)
 	fmt.Fprintf(w, "Login success")
+
+}
+
+// GetUser is a handler to create a user
+func GetUser(w http.ResponseWriter, r *http.Request) {
+
+}
+
+// GetTopPlayers is a handler to create a user
+func GetTopPlayers(w http.ResponseWriter, r *http.Request) {
 
 }
