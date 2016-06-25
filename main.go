@@ -14,6 +14,8 @@ func main() {
 	router := app.InitRouter()
 	config.InitConfig()
 
-	fmt.Println("Listenning on localhost:8080")
-	log.Fatal(http.ListenAndServe(":8080", router))
+	listenAddr := fmt.Sprintf("%s:%d", config.Config.Host, config.Config.Port)
+
+	fmt.Println("Application started on " + listenAddr)
+	log.Fatal(http.ListenAndServe(listenAddr, router))
 }

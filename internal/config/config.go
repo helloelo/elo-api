@@ -11,8 +11,9 @@ import (
 var Config Conf
 
 type Conf struct {
-	// App Port
-	Port int `toml:"port"`
+	// Port
+	Port int    `toml:"port"`
+	Host string `toml:"host"`
 
 	// ClientID is the application's ID.
 	ClientID string `toml:"client_id"`
