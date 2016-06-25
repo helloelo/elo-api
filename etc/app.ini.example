@@ -1,0 +1,12 @@
+; General Config
+port=1337
+
+; Oauth2 config
+client_id=
+client_secret=
+oauth_endpoint=
+redirect_url=
+scopes=
+
+; Mysql
+mysql_dsn=dbUsername:dbPassword@tcp(localhost:3306)/helloelo

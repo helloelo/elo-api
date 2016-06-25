@@ -8,4 +8,5 @@ import (
 
 func InitRoutes(router *mux.Router) {
 	router.HandleFunc("/", handler.Index)
+	router.HandleFunc("/login", handler.Login)
 }
