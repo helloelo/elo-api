@@ -1,0 +1,32 @@
+hash: f6a85bb7164945adcead2370c86f41f90917b5d02381e38c612ec18fdbb30c5e
+updated: 2016-06-25T19:27:27.453395099+07:00
+imports:
+- name: github.com/BurntSushi/toml
+  version: f0aeabca5a127c4078abb8c8d64298b147264b55
+- name: github.com/golang/protobuf
+  version: 0c1f6d65b5a189c2250d10e71a5506f06f9fa0a0
+  subpackages:
+  - proto
+- name: github.com/gorilla/context
+  version: aed02d124ae4a0e94fea4541c8effd05bf0c8296
+- name: github.com/gorilla/mux
+  version: 9fa818a44c2bf1396a17f9d5a3c0f6dd39d2ff8e
+- name: golang.org/x/net
+  version: bc3663df0ac92f928d419e31e0d2af22e683a5a2
+  subpackages:
+  - context
+- name: golang.org/x/oauth2
+  version: 65a8d08c6292395d47053be10b3c5e91960def76
+  subpackages:
+  - internal
+- name: google.golang.org/appengine
+  version: 267c27e7492265b84fc6719503b14a1e17975d79
+  subpackages:
+  - urlfetch
+  - internal
+  - internal/urlfetch
+  - internal/base
+  - internal/datastore
+  - internal/log
+  - internal/remote_api
+devImports: []
