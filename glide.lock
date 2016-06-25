@@ -1,5 +1,5 @@
 hash: f6a85bb7164945adcead2370c86f41f90917b5d02381e38c612ec18fdbb30c5e
-updated: 2016-06-25T19:27:27.453395099+07:00
+updated: 2016-06-26T02:03:19.217897136+07:00
 imports:
 - name: github.com/BurntSushi/toml
   version: f0aeabca5a127c4078abb8c8d64298b147264b55
@@ -11,6 +11,12 @@ imports:
   version: aed02d124ae4a0e94fea4541c8effd05bf0c8296
 - name: github.com/gorilla/mux
   version: 9fa818a44c2bf1396a17f9d5a3c0f6dd39d2ff8e
+- name: github.com/lann/builder
+  version: f22ce00fd9394014049dad11c244859432bd6820
+- name: github.com/lann/ps
+  version: 62de8c46ede02a7675c4c79c84883eb164cb71e3
+- name: github.com/Masterminds/squirrel
+  version: caff2d522d550f0998629c85898ad35e8a603328
 - name: golang.org/x/net
   version: bc3663df0ac92f928d419e31e0d2af22e683a5a2
   subpackages:

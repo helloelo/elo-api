@@ -39,7 +39,7 @@ var routes = Routes{
 		"Index",
 		"GET",
 		"/",
-		handler.Login,
+		handler.Index,
 	},
 	Route{
 		"Login",

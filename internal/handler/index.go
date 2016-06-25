@@ -7,5 +7,5 @@ import (
 
 // Index is a handler to get index
 func Index(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello Elo - alpha")
+	fmt.Fprintf(w, "Hello Elo")
 }

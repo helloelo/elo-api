@@ -2,17 +2,13 @@ package handler
 
 import (
 	"fmt"
-	"log"
+	"io/ioutil"
 	"net/http"
 
 	a "elo-api/internal/config"
 
 	"golang.org/x/oauth2"
 )
-
-func Login2(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Login success")
-}
 
 // Login is a handler to create account or login via Oauth
 func Login(w http.ResponseWriter, r *http.Request) {
@@ -30,26 +26,32 @@ func Login(w http.ResponseWriter, r *http.Request) {
 	code = r.URL.Query().Get("code")
 	tok, err := conf.Exchange(oauth2.NoContext, code)
 	if err != nil {
-		log.Fatal(err)
+		fmt.Fprintf(w, err.Error())
+		return
 	}
 
 	client := conf.Client(oauth2.NoContext, tok)
-	profile, err := client.Get("profile")
+	response, err := client.Get("https://www.googleapis.com/oauth2/v3/userinfo")
+	body, err := ioutil.ReadAll(response.Body)
+	response.Body.Close()
 	if err != nil {
-		log.Fatal(err)
+		fmt.Fprintf(w, err.Error())
+		return
 	}
 
 	// Get the email
 	// Check if user exists, if not create entry in db
 	// return email+token
-	fmt.Println("DEBUG: ", profile.Body.Read)
-	fmt.Fprintf(w, "Login success")
+	chocoCookie := &http.Cookie{Name: "Token", Value: tok.AccessToken, HttpOnly: false, Expires: tok.Expiry}
+	http.SetCookie(w, chocoCookie)
+	fmt.Fprintf(w, string(body))
 
 }
 
 // GetUser is a handler to create a user
 func GetUser(w http.ResponseWriter, r *http.Request) {
-
+	//player := model.GetPlayerFromId(r.URL.Get("player_id"))
+	//json.NewEncoder(w).Encode(player)
 }
 
 // GetTopPlayers is a handler to create a user

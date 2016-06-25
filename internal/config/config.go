@@ -8,41 +8,41 @@ import (
 )
 
 // Config is the global application config, set during init
-var Config config
+var Config Conf
 
-type config struct {
+type Conf struct {
 	// App Port
-	Port int `config:"port"`
+	Port int `toml:"port"`
 
 	// ClientID is the application's ID.
-	ClientID string `config:"client_id"`
+	ClientID string `toml:"client_id"`
 
 	// ClientSecret is the application's secret.
-	ClientSecret string `config:"client_secret"`
+	ClientSecret string `toml:"client_secret"`
 
 	// RedirectURL is the URL to redirect users going through
 	// the OAuth flow, after the resource owner's URLs.
-	RedirectURL string `config:"redirect_url"`
+	RedirectURL string `toml:"redirect_url"`
 
-	EndpointAuthURL  string `config:"endpoint_auth_url"`
-	EndpointTokenURL string `config:"endpoint_token_url"`
+	EndpointAuthURL  string `toml:"endpoint_auth_url"`
+	EndpointTokenURL string `toml:"endpoint_token_url"`
 
 	// Scope specifies optional requested permissions.
-	Scopes []string `config:"scopes"`
+	Scopes []string `toml:"scopes"`
 
 	// Mysql is the dsn used
-	Mysql string `config:"mysql_dsn"`
+	Mysql string `toml:"mysql_dsn"`
 }
 
 // InitConfig reads info from config file
 func InitConfig() {
-	var configfile = "/etc/app.ini"
+	var configfile = "./etc/app.ini"
 	_, err := os.Stat(configfile)
 	if err != nil {
 		log.Fatal("Config file is missing: ", configfile)
 	}
 
-	var config config
+	var config Conf
 	if _, err := toml.DecodeFile(configfile, &config); err != nil {
 		log.Fatal(err)
 	}
